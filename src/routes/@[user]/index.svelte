@@ -43,7 +43,7 @@
 		<div class="user-container">
 			<div class="user">
 				<div class="name">
-					{res.nickname}
+					<a href="/@{res.nickname}" class="no-deco"> {res.nickname}</a>
 				</div>
 				<div class="about">
 					{res.about}
@@ -57,7 +57,7 @@
 				{#each res.data.reverse() as p, index}
 					<div class="card" id="post-{res.data.length - index}-{p.nick}">
 						<div class="title">
-							{p.nick}
+							<a href="/@{p.nick}/gg" class="no-deco">{p.nick}</a>
 							{#if res.data.length - index === 1}
 								<Badge># {res.data.length - index}</Badge>
 							{:else if res.data.length - index === 2}
