@@ -7,7 +7,8 @@ const c = [
 	() => import("..\\..\\..\\src\\routes\\account\\signup\\index.svelte"),
 	() => import("..\\..\\..\\src\\routes\\policy\\index.svelte"),
 	() => import("..\\..\\..\\src\\routes\\api\\dashboard.svelte"),
-	() => import("..\\..\\..\\src\\routes\\@[user]\\index.svelte")
+	() => import("..\\..\\..\\src\\routes\\@[user]\\index.svelte"),
+	() => import("..\\..\\..\\src\\routes\\@[user]\\gg.svelte")
 ];
 
 const d = decodeURIComponent;
@@ -32,7 +33,10 @@ export const routes = [
 	[/^\/api\/dashboard\/?$/, [c[0], c[7]], [c[1]]],
 
 	// src/routes/@[user]/index.svelte
-	[/^\/@([^/]+?)\/?$/, [c[0], c[8]], [c[1]], (m) => ({ user: d(m[1])})]
+	[/^\/@([^/]+?)\/?$/, [c[0], c[8]], [c[1]], (m) => ({ user: d(m[1])})],
+
+	// src/routes/@[user]/gg.svelte
+	[/^\/@([^/]+?)\/gg\/?$/, [c[0], c[9]], [c[1]], (m) => ({ user: d(m[1])})]
 ];
 
 // we import the root layout/error components eagerly, so that
