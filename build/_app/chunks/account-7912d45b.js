@@ -1,0 +1,1 @@
+import{s as r}from"./db-b47507ac.js";import{f as t}from"./fetch-10917518.js";async function a(r){return await t(`/account/profile?id=${r}`)}async function n(){const t=r.auth.user();return{user:t,profile:await a(t?t.id:null)}}export{n as g};
