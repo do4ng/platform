@@ -16,16 +16,21 @@
 
 	export let user;
 
+	let uploading = false;
+
 	async function loadUser() {
 		const res = await fetchApiServer(`/account/profilebynick?nickname=${user}`);
 		// console.log(res);
 		return res;
 	}
 	async function upload() {
-		const u = await getProfile();
-		await fetchApiServer(`/upload/${user}?by=${await u.user.id}&nickname=${u.profile.nickname}&content=${inputtext}`);
+		if (inputtext) {
+			uploading = true;
+			const u = await getProfile();
+			await fetchApiServer(`/upload/${user}?by=${await u.user.id}&nickname=${u.profile.nickname}&content=${inputtext}`);
 
-		window.location.reload();
+			window.location.reload();
+		}
 	}
 	let promise = loadUser();
 	let inputtext = '';
