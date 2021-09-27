@@ -5,6 +5,7 @@
 
 	let email: string = '';
 	let password: string = '';
+	let retypepassword: string = '';
 	let nickname: string = '';
 	let about: string = '';
 
@@ -16,10 +17,19 @@
 		document.getElementById('loginerror').style.visibility = 'visible';
 	};
 
+	const hide = () => {
+		document.getElementById('loginerror').style.visibility = 'hidden';
+	};
+
 	async function login() {
+		hide();
 		const d = await await await signup(email, password);
+		const exists = await fetchApiServer(`/account/profilebynick?nickname=${nickname.trim()}`);
 		if (nickname === '') {
 			message = '닉네임을 설정해주세요.';
+			show();
+		} else if (exists.id !== null) {
+			message = '이미 존재하는 닉네임입니다. 다른 닉네임을 선택해주세요.';
 			show();
 		} else if (d.error) {
 			message = '이미 존재하는 계정입니다.';
@@ -30,8 +40,11 @@
 		}
 	}
 	function next() {
-		if (email === '' || password === '') {
+		if (email === '' || password === '' || retypepassword === '') {
 			message = '필수 입력란을 채워주세요.';
+			show();
+		} else if (password.trim() !== retypepassword.trim()) {
+			message = '비밀번호가 올바르지 않습니다.';
 			show();
 		} else {
 			level = 2;
@@ -52,6 +65,7 @@
 			<div class="form">
 				<input bind:value={email} type="text" placeholder="email *" />
 				<input bind:value={password} type="password" placeholder="password *" />
+				<input bind:value={retypepassword} type="password" placeholder="retype password *" />
 			</div>
 			<div class="confirm">
 				<div class="error" id="loginerror">{message}</div>
