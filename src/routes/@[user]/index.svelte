@@ -22,11 +22,17 @@
 	async function loadUser() {
 		const res = await fetchApiServer(`/account/profilebynick?nickname=${user}`);
 		// console.log(res);
+		if (typeof window !== undefined) {
+			document.title = `@${user}`;
+		}
 		return res;
 	}
 	async function upload() {
-		if (inputtext) {
+		if (inputtext && !uploading) {
 			uploading = true;
+			if (typeof window !== undefined) {
+				document.title = `@${user} - uploading..`;
+			}
 			const u = await getProfile();
 			await fetchApiServer(`/upload/${user}?by=${await u.user.id}&nickname=${u.profile.nickname}&content=${inputtext}`);
 
@@ -38,7 +44,7 @@
 </script>
 
 <svelte:head>
-	<title>@{user}</title>
+	<title>Connecting..</title>
 </svelte:head>
 
 {#await promise then res}
