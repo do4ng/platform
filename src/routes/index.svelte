@@ -6,6 +6,10 @@
 	})();
 </script>
 
+<svelte:head>
+	<title>친구들과 함께 행복한 추억을 쌓으세요.</title>
+</svelte:head>
+
 <div class="index">
 	<div class="indexhead">
 		<div class="indexhead1">
