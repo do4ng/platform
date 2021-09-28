@@ -13,6 +13,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Signin - Platform</title>
+</svelte:head>
+
 <div class="logincard">
 	<div class="logincardcontent">
 		<div class="welcomecontent">환영합니다</div>
