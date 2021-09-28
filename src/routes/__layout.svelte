@@ -39,7 +39,7 @@
 		/* white theme */
 		--theme-background: #ffffff;
 		--theme-color: #000000;
-		--theme-gray: #d1d1d1;
+		--theme-gray: rgb(122, 122, 122);
 		--theme-button-gray: #d1d1d1;
 		--theme-nav-color: #e2e2e2;
 		--blue: #31acff;
