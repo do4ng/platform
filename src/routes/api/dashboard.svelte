@@ -10,3 +10,7 @@
 		}
 	})();
 </script>
+
+<svelte:head>
+	<title>Connecting..</title>
+</svelte:head>
