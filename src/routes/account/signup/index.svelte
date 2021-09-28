@@ -52,6 +52,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Signup - Platform</title>
+</svelte:head>
+
 <div class="logincard">
 	<div class="logincardcontent">
 		{#if level === 1}
