@@ -4,4 +4,7 @@
 	signout();
 </script>
 
+<svelte:head>
+	<title>Signout - Platform</title>
+</svelte:head>
 Signout
