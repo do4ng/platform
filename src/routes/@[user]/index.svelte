@@ -12,6 +12,7 @@
 	import { getProfile } from '$lib/account';
 
 	import fetchApiServer from '$lib/backend/fetch';
+	import { ADMIN } from '../../constants/admin';
 	import Badge from '../../components/badge.svelte';
 
 	export let user;
@@ -36,6 +37,10 @@
 	let inputtext = '';
 </script>
 
+<svelte:head>
+	<title>@{user}</title>
+</svelte:head>
+
 {#await promise then res}
 	{#if res.id === null}
 		User Not Found
@@ -44,6 +49,9 @@
 			<div class="user">
 				<div class="name">
 					<a href="/@{res.nickname}" class="no-deco"> {res.nickname}</a>
+					{#if ADMIN.includes(res.id)}
+						<Badge>인증됨</Badge>
+					{/if}
 				</div>
 				<div class="about">
 					{res.about}
