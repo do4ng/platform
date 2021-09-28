@@ -8,6 +8,7 @@ const c = [
 	() => import("../../../src/routes/policy/index.svelte"),
 	() => import("../../../src/routes/api/dashboard.svelte"),
 	() => import("../../../src/routes/@[user]/index.svelte"),
+	() => import("../../../src/routes/@[user]/platform.svelte"),
 	() => import("../../../src/routes/@[user]/share/[post].svelte"),
 	() => import("../../../src/routes/@[user]/gg.svelte")
 ];
@@ -36,11 +37,14 @@ export const routes = [
 	// src/routes/@[user]/index.svelte
 	[/^\/@([^/]+?)\/?$/, [c[0], c[8]], [c[1]], (m) => ({ user: d(m[1])})],
 
+	// src/routes/@[user]/platform.svelte
+	[/^\/@([^/]+?)\/platform\/?$/, [c[0], c[9]], [c[1]], (m) => ({ user: d(m[1])})],
+
 	// src/routes/@[user]/share/[post].svelte
-	[/^\/@([^/]+?)\/share\/([^/]+?)\/?$/, [c[0], c[9]], [c[1]], (m) => ({ user: d(m[1]), post: d(m[2])})],
+	[/^\/@([^/]+?)\/share\/([^/]+?)\/?$/, [c[0], c[10]], [c[1]], (m) => ({ user: d(m[1]), post: d(m[2])})],
 
 	// src/routes/@[user]/gg.svelte
-	[/^\/@([^/]+?)\/gg\/?$/, [c[0], c[10]], [c[1]], (m) => ({ user: d(m[1])})]
+	[/^\/@([^/]+?)\/gg\/?$/, [c[0], c[11]], [c[1]], (m) => ({ user: d(m[1])})]
 ];
 
 // we import the root layout/error components eagerly, so that
