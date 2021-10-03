@@ -24,7 +24,7 @@
 		"sass": "^1.42.1",
 		"svelte": "^3.34.0",
 		"svelte-check": "^2.2.6",
-		"svelte-preprocess": "^4.9.4",
+		"svelte-preprocess": "^4.9.8",
 		"tslib": "^2.3.1",
 		"typescript": "^4.4.3"
 	},
@@ -34,6 +34,7 @@
 		"@lukeed/uuid": "^2.0.0",
 		"@supabase/supabase-js": "^1.23.0",
 		"cookie": "^0.4.1",
-		"encoding": "^0.1.13"
+		"encoding": "^0.1.13",
+		"time-counting": "^2.0.2"
 	}
 }
