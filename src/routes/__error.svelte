@@ -1,6 +1,26 @@
+<script context="module">
+	export function load({ error, status }) {
+		return {
+			props: {
+				title: `${status}: ${error.message}`
+			}
+		};
+	}
+</script>
+
+<script>
+	export let title;
+</script>
+
+<svelte:head>
+	<title>오류가 발생했습니다</title>
+</svelte:head>
+
 <div class="pageerror">
-	<div class="errortitle">페이지를 찾을 수 없습니다.</div>
-	<p class="errormessage">링크가 올바른지 다시 확인해주세요.</p>
+	<div class="errortitle">오류가 발생했습니다.</div>
+	<p class="errormessage">
+		{title}
+	</p>
 </div>
 
 <style lang="scss">
