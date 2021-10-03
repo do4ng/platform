@@ -1,0 +1,1 @@
+import{s as e}from"./db-cdcd9140.js";import{f as t}from"./fetch-1db0cb0a.js";function a(){return e.auth.user()}async function i(r){return await t(`/account/profile?id=${r}`)}async function s(){const r=a();return{user:r,profile:await i(r?r.id:null)}}export{s as g};
