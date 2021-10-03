@@ -10,12 +10,7 @@ const config = {
 	kit: {
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#__app__',
-		adapter: netlify(),
-		vite: {
-			optimizeDeps: {
-				exclude: ['stream']
-			}
-		}
+		adapter: netlify()
 	}
 };
 
