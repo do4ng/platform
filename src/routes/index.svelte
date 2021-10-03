@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { getProfile } from '$lib/account';
-
 	(async function () {
 		const u = await getProfile();
 	})();
