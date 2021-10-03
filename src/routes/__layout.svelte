@@ -31,6 +31,7 @@
 		--theme-color: #ffffff;
 		--theme-gray: #eeeeee;
 		--theme-nav-color: #292929;
+		--theme-nav-color-hover: #1a1a1a;
 		--blue: #4ba0d9;
 		--theme-button-gray: #383838;
 	}
@@ -42,6 +43,7 @@
 		--theme-gray: rgb(122, 122, 122);
 		--theme-button-gray: #d1d1d1;
 		--theme-nav-color: #e2e2e2;
+		--theme-nav-color-hover: #d3d3d3;
 		--blue: #31acff;
 	}
 
