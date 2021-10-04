@@ -171,6 +171,7 @@
 					outline: none;
 					border: none;
 					background-color: var(--theme-nav-color);
+					color: var(----theme-color);
 					transition: all ease 0.2s 0s;
 				}
 				.show-button:hover {
