@@ -28,12 +28,13 @@
 		return res;
 	}
 	async function upload() {
+		console.log(uploading);
 		if (inputtext && !uploading) {
+			uploading = true;
 			const u = await getProfile();
 			if (u.profile.id === null) {
 				window.location.href = '/account/signin';
 			}
-			uploading = true;
 			await fetchApiServer(`/upload/${user}?by=${await u.user.id}&nickname=${u.profile.nickname}&content=${inputtext}`);
 
 			if (typeof window !== 'undefined') {
