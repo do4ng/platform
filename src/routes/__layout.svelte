@@ -23,6 +23,7 @@
 
 	:root {
 		font-family: 'Inter', 'Noto Sans KR', sans-serif;
+		transition: all ease 0.2s 0s;
 	}
 
 	:global(.theme-dark) {
@@ -77,5 +78,13 @@
 	}
 	:global(a):hover {
 		text-decoration: underline;
+	}
+	:global(.mx-auto) {
+		margin-left: auto;
+		margin-right: auto;
+	}
+	:global(i) {
+		vertical-align: middle;
+		padding: 0 1.6px;
 	}
 </style>
