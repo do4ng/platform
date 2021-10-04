@@ -31,7 +31,7 @@
 		--theme-color: #ffffff;
 		--theme-gray: #eeeeee;
 		--theme-nav-color: #292929;
-		--theme-nav-color-hover: #1a1a1a;
+		--theme-nav-color-hover: #303030;
 		--blue: #4ba0d9;
 		--theme-button-gray: #383838;
 	}
