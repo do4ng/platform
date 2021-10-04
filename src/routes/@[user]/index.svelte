@@ -20,11 +20,16 @@
 
 	export let user;
 
+	let following = false;
+
 	let uploading = false;
 
 	async function loadUser() {
 		const res = await fetchApiServer(`/account/profilebynick?nickname=${user}`);
-
+		const u = await getProfile();
+		if (u.profile.id !== null) {
+			following = res.follower.includes(u.user.id);
+		}
 		return res;
 	}
 	async function upload() {
@@ -91,7 +96,14 @@
 						<div class="show-follow">
 							전체 글 <span class="show-bold">{res.data.length}</span>
 						</div>
-						<button on:click={follow} class="show-button">Follow</button>
+						<button on:click={follow} class="show-button"
+							>{#if following}
+								<i class="fi fi-rr-cross-circle" />
+								팔로우 취소
+							{:else}
+								<i class="fi fi-rr-add" /> 팔로우
+							{/if}</button
+						>
 					</div>
 				</div>
 				<div class="post">
