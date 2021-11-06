@@ -1,1 +1,0 @@
-import{S as n,i,s as c,t as r,g as l,f as p,J as s,d as u}from"../../chunks/vendor-35612e70.js";function d(a){let t;return{c(){t=r("policy")},l(e){t=l(e,"policy")},m(e,o){p(e,t,o)},p:s,i:s,o:s,d(e){e&&u(t)}}}class m extends n{constructor(t){super();i(this,t,null,d,c,{})}}export{m as default};
