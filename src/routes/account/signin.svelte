@@ -1,14 +1,21 @@
 <script lang="ts">
+	import { getProfile } from '$lib/account';
+
 	import signin from '$lib/account/signin';
 
 	let email: string = '';
 	let password: string = '';
 
 	async function login() {
-		if (await (await signin(email, password)).error) {
+		let log = await signin(email, password);
+		if (log.error) {
 			document.getElementById('loginerror').style.visibility = 'visible';
 		} else {
-			window.location.href = '/';
+			if (typeof window !== 'undefined') {
+				let usr = await getProfile();
+				localStorage.setItem('nickname', usr.profile.nickname);
+				window.location.href = '/';
+			}
 		}
 	}
 </script>
