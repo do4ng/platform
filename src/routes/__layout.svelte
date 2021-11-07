@@ -1,5 +1,32 @@
 <script lang="ts">
 	import Header from '../components/header.svelte';
+	import { onMount } from 'svelte';
+	import { getProfile } from '$lib/account';
+	import { user } from '$lib/store/store';
+
+	let usr: undefined | string = undefined;
+	let users: undefined | string = undefined;
+
+	(async function () {
+		if (typeof window !== 'undefined' && !localStorage.getItem('nickname')) {
+			usr = await (await getProfile()).profile.nickname;
+			localStorage.setItem('nickname', usr);
+			users = await localStorage.getItem('nickname');
+			user.set(usr);
+		} else if (typeof window !== 'undefined' && localStorage.getItem('nickname')) {
+			usr = await (await getProfile()).profile.nickname;
+			console.log(usr);
+			if (usr === null) {
+				user.set('__undefined__');
+				localStorage.setItem('nickname', '__undefined__');
+			}
+		}
+	})();
+
+	onMount(async () => {
+		users = await localStorage.getItem('nickname');
+		user.set(users);
+	});
 </script>
 
 <Header />
@@ -34,6 +61,7 @@
 		--theme-nav-color: #292929;
 		--theme-nav-color-hover: #303030;
 		--blue: #4ba0d9;
+		--b-blue: #418bbd;
 		--theme-button-gray: #383838;
 	}
 
@@ -46,6 +74,7 @@
 		--theme-nav-color: #e2e2e2;
 		--theme-nav-color-hover: #d3d3d3;
 		--blue: #31acff;
+		--b-blue: #2d9de7;
 	}
 
 	:global(body) {
