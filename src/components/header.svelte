@@ -1,19 +1,5 @@
 <script>
-	function theme() {
-		const classlist = document.querySelector('body').classList;
-		if (!localStorage.getItem('theme')) {
-			localStorage.setItem('theme', 'light');
-		}
-		if (localStorage.getItem('theme') === 'dark') {
-			localStorage.setItem('theme', 'light');
-			classlist.remove(`theme-dark`);
-			classlist.add(`theme-light`);
-		} else if (localStorage.getItem('theme') === 'light') {
-			localStorage.setItem('theme', 'dark');
-			classlist.remove(`theme-light`);
-			classlist.add(`theme-dark`);
-		}
-	}
+	import { user } from '$lib/store/store';
 </script>
 
 <div class="header">
@@ -21,7 +7,18 @@
 	<div class="header-main">
 		<div class="header-content">
 			<div class="header-title"><a href="/" class="no-deco">platform</a></div>
-			<div class="theme-d"><i class="fi fi-sr-moon" on:click={theme} /></div>
+			<div class="theme-d">
+				<div id="__nickname__">
+					<span
+						style="
+						cursor: pointer;
+						font-weight: bold;"
+						on:click={() => {
+							window.location.href = `/@${$user}`;
+						}}>{$user === '__undefined__' ? '' : $user}</span
+					>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -51,6 +48,7 @@
 		font-size: 1.175rem;
 	}
 	.theme-d {
+		display: flex;
 		margin-left: auto;
 	}
 </style>
