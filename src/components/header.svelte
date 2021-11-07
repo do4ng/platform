@@ -15,7 +15,7 @@
 						font-weight: bold;"
 						on:click={() => {
 							window.location.href = `/@${$user}`;
-						}}>{$user === '__undefined__' ? '' : $user}</span
+						}}>{$user === '__undefined__' || $user === null ? '' : $user}</span
 					>
 				</div>
 			</div>
