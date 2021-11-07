@@ -9,6 +9,8 @@
 </script>
 
 <script>
+	// @ts-nocheck
+
 	import { getProfile } from '$lib/account';
 
 	import fetchApiServer from '$lib/backend/fetch';
@@ -28,7 +30,9 @@
 		const res = await fetchApiServer(`/account/profilebynick?nickname=${user}`);
 		const u = await getProfile();
 		if (u.profile.id !== null) {
-			following = res.follower.includes(u.user.id);
+			try {
+				following = res.follower.includes(u.user.id);
+			} catch (e) {}
 		}
 		return res;
 	}
@@ -69,7 +73,7 @@
 
 {#await promise then res}
 	{#if res.id === null}
-		User Not Found
+		<div class="user-nf">User Not Found</div>
 	{:else}
 		<div class="user-container">
 			<div class="user">
@@ -251,7 +255,16 @@
 				background-color: var(--blue);
 				color: #ffffff;
 				font-weight: bold;
+				cursor: pointer;
+				transition: all ease 0.2s 0s;
+			}
+			button:hover {
+				background-color: var(--b-blue);
+				transition: all ease 0.2s 0s;
 			}
 		}
+	}
+	.user-nf {
+		text-align: center;
 	}
 </style>
