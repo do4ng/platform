@@ -23,7 +23,7 @@
 
 	async function login() {
 		hide();
-		const d = await await await signup(email, password);
+		const d = await signup(email, password);
 		const exists = await fetchApiServer(`/account/profilebynick?nickname=${nickname.trim()}`);
 		if (nickname === '') {
 			message = '닉네임을 설정해주세요.';
