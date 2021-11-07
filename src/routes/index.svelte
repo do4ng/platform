@@ -30,6 +30,11 @@
 				<span class="btnwhite">대시보드</span>
 			</button>
 		</a>
+		<a href="/us" class="no-deco">
+			<button class="btn hiddenbtn">
+				<span class="btnwhite">더 알아보기</span>
+			</button>
+		</a>
 	</div>
 </div>
 
@@ -65,7 +70,27 @@
 		border: none;
 		cursor: pointer;
 		background-color: var(--blue);
+		transition: all ease 0.2s 0s;
 		border-radius: 5px;
+		margin-right: 5px;
+	}
+	.indexbtn:hover {
+		background-color: var(--b-blue);
+		transition: all ease 0.2s 0s;
+	}
+	.hiddenbtn {
+		border: none;
+		cursor: pointer;
+		background-color: var(--theme-background);
+		border-radius: 5px;
+		transition: all ease 0.2s 0s;
+		span {
+			color: var(--theme-color);
+		}
+	}
+	.hiddenbtn:hover {
+		background-color: var(--theme-nav-color);
+		transition: all ease 0.2s 0s;
 	}
 	.btnwhite {
 		font-weight: bold;
