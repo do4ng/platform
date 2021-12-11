@@ -2,9 +2,9 @@
 
 simple SNS using svelte.
 
-## See Demo
+## Demo
 
-https://eloquent-aryabhata-4c5e9b.netlify.app/
+[Demo Alive!](https://platformweb-demo.netlify.app/)
 
 ## run
 
