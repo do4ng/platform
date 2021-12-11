@@ -3,10 +3,13 @@
 
 	(async function () {
 		const u = await getProfile();
-		if (u.user) {
-			window.location.replace(`/@${u.profile.nickname}`);
-		} else {
-			window.location.replace(`/account/signin`);
+		if (typeof window !== 'undefined') {
+			if (u.user) {
+				console.log(u);
+				window.location.replace(`/@${u.profile.nickname}`);
+			} else {
+				window.location.replace(`/account/signin`);
+			}
 		}
 	})();
 </script>
