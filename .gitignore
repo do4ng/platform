@@ -78,3 +78,5 @@ typings/
 /.netlify
 /.svelte-kit
 /build
+
+*.dev.ts
