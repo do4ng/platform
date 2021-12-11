@@ -2,5 +2,14 @@
 export interface Profile {
 	id: string;
 	nickname: string;
-	data: any[];
+	about: string;
+	data: Data[];
+	follower: string[];
+	following: string[];
+}
+export interface Data {
+	by: string;
+	nick: string;
+	content: string;
+	time: string;
 }
