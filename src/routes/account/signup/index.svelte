@@ -2,6 +2,7 @@
 	import signup from '$lib/account/signup';
 	import user from '$lib/account/user';
 	import fetchApiServer from '$lib/backend/fetch';
+	import postApiServer from '$lib/backend/post';
 
 	let email: string = '';
 	let password: string = '';
@@ -24,18 +25,18 @@
 	async function login() {
 		hide();
 		const d = await signup(email, password);
-		const exists = await fetchApiServer(`/account/profilebynick?nickname=${nickname.trim()}`);
+		const exists = await fetchApiServer(`/account/profile/${nickname.trim()}`);
 		if (nickname === '') {
 			message = '닉네임을 설정해주세요.';
 			show();
-		} else if (exists.id !== null) {
+		} else if (exists !== null) {
 			message = '이미 존재하는 닉네임입니다. 다른 닉네임을 선택해주세요.';
 			show();
 		} else if (d.error) {
 			message = '이미 존재하는 계정입니다.';
 			show();
 		} else {
-			await fetchApiServer(`/account/create?id=${d.user.id}&nickname=${nickname}&about=${about}`);
+			await postApiServer(`/account/create`, window.location.origin, { id: d.user.id, nickname, about });
 			level = 3;
 		}
 	}

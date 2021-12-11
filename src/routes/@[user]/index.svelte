@@ -10,6 +10,7 @@
 
 <script>
 	// @ts-nocheck
+	import { session } from '$app/stores';
 
 	import { getProfile } from '$lib/account';
 
@@ -19,6 +20,7 @@
 	import getAgo from '$lib/time/ago';
 	import linkParser from '$lib/parser/link';
 	import userParser from '$lib/parser/user';
+	import postApiServer from '$lib/backend/post';
 
 	export let user;
 
@@ -27,7 +29,7 @@
 	let uploading = false;
 
 	async function loadUser() {
-		const res = await fetchApiServer(`/account/profilebynick?nickname=${user}`);
+		const res = await fetchApiServer(`/account/profile/${user}`);
 		const u = await getProfile();
 		if (u.profile.id !== null) {
 			try {
@@ -38,25 +40,29 @@
 	}
 	async function upload() {
 		console.log(uploading);
-		if (inputtext && !uploading) {
+		if (inputtext && !uploading && typeof window !== 'undefined') {
 			uploading = true;
 			const u = await getProfile();
 			if (u.profile.id === null) {
 				window.location.href = '/account/signin';
 			}
-			await fetchApiServer(`/upload/${user}?by=${await u.user.id}&nickname=${u.profile.nickname}&content=${inputtext}`);
+			const token = localStorage.getItem('supabase.auth.token');
+			await postApiServer(`/post/${user}`, window.location.origin, {
+				content: inputtext,
+				req: token,
+				base: window.location.origin
+			});
 
-			if (typeof window !== 'undefined') {
-				window.location.reload();
-			}
+			window.location.reload();
 		}
 	}
 	async function follow() {
+		const token = localStorage.getItem('supabase.auth.token');
 		const u = await getProfile();
 		if (u.profile.id === null) {
 			window.location.href = '/account/signin';
 		}
-		const res = await fetchApiServer(`/follow/${user}?by=${await u.user.id}`);
+		const res = await postApiServer(`/account/follow/${user}`, window.location.origin, { req: token });
 		if (typeof window !== 'undefined') {
 			window.location.reload();
 		}
