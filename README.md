@@ -2,7 +2,6 @@
 
 simple SNS using svelte.
 
-<<<<<<< HEAD
 ## Screenshot
 
 ![img](./docs/screen.png)
@@ -10,10 +9,7 @@ White Theme
 ![img](./docs/screen-dark.png)
 Dark Theme
 
-## See Demo
-=======
 ## Demo
->>>>>>> f1ee3e9998eb42b13c398eb05d1dfca2bbf83164
 
 [Demo Alive!](https://platformweb-demo.netlify.app/)
 
