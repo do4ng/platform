@@ -79,4 +79,5 @@ typings/
 /.svelte-kit
 /build
 
+src/lib/db.ts
 *.dev.ts
