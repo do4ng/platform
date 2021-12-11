@@ -5,5 +5,5 @@ import profile from './profile';
 
 export async function getProfile(): Promise<{ user: User; profile: Profile }> {
 	const u = user();
-	return { user: u, profile: await profile(u ? u.id : null) };
+	return { user: u, profile: await profile(u ? u.id : 'null') };
 }
