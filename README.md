@@ -2,6 +2,13 @@
 
 simple SNS using svelte.
 
+## Screenshot
+
+![img](./docs/screen.png)
+White Theme
+![img](./docs/screen-dark.png)
+Dark Theme
+
 ## See Demo
 
 https://eloquent-aryabhata-4c5e9b.netlify.app/
@@ -23,7 +30,7 @@ yarn # or npm install
 ```
 
 3. set database
-[see more](./docs/run-project.md)
+   [see more](./docs/run-project.md)
 
 4. Run!
 
