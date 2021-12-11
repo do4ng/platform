@@ -22,7 +22,10 @@ cd platform
 yarn # or npm install
 ```
 
-3. Run!
+3. set database
+[see more](./docs/run-project.md)
+
+4. Run!
 
 ```bash
 yarn dev # or npm run dev
