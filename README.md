@@ -13,6 +13,8 @@ Dark Theme
 
 [Demo Alive!](https://platformweb-demo.netlify.app/)
 
+현재 dashboard에서 해당 페이지로 넘어가지 않는 문제가 발견되었습니다.
+
 ## run
 
 1. Download Project
