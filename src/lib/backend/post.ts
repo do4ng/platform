@@ -9,6 +9,7 @@ export default async function postApiServer(
 	let r: any;
 	await fetch(`${base}/api/v1${address}`, { method: 'POST', body: JSON.stringify(data) })
 		.then((res) => res.json())
-		.then((data) => (r = data));
+		.then((data) => (r = data))
+		.catch((e) => console.error(e));
 	return r;
 }

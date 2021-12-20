@@ -4,6 +4,7 @@ export default async function fetchApiServer(address: string, base = 'http://loc
 
 	await fetch(`${base}/api/v1${address}`)
 		.then((res) => res.json())
-		.then((data) => (r = data));
+		.then((data) => (r = data))
+		.catch((e) => console.error(e));
 	return r;
 }
