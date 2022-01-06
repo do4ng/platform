@@ -3,7 +3,7 @@
 ### 기본 URL
 
 ```
-https://platformweb-demo.netlify.app/api
+~/api
 ```
 
 ### API 버전
